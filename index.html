@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF app</title>
   <link rel="stylesheet" href="css/style.css" media="all">
 
-
+  <!--<script>
+    // Avoid Liff caching for debuging
+    document.write('<link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() + '" media="all">')
+  </script>-->
+  
 </head>
-
 <body>
-
-<p id="os"><b>OS:</b> </p>
+  <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
@@ -41,35 +42,14 @@
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-
-<!-- เพิ่มเติม 1 -->
-
-  <p id="userid1"><b>userid1:</b> </p>
-  <p id="userid2"><b>userid2:</b> </p>
-  <p id="userid3"><b>userid3:</b> </p>
-
-  <a href="" onclick="external1()">esanphc (external browser)</a><br>
-
-  <script>
-    function external1() {
-      liff.openWindow({
-        url: "https://esanphc.net",
-        external: true
-      })
-    }
-  </script>
-
-  <a href="https://esanphc.net">esanphc  (inapp browser - not endpiont)</a>
-  <br>
-  <a href="test.php">test (in liff browser - endpoint)</a>
+  <!-- <script src="js/vconsole.min.js"></script> -->
+  <!-- <script>
+    var vConsole = new VConsole()
+    console.log("Hello World!")
+  </script> -->
 
 
-<!-- ./ เพิ่มเติม 1 -->
-
-
-  <!-- LIFF START-->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-
   <script>
     function createUniversalLink() {
       const link1 = liff.permanetLink.createUrl()
@@ -124,23 +104,10 @@
       if (liff.getContext().type !== "none"){
         await liff.sendMessages([
           {
-            type: 'text',
-            text: window.location.href
-          }/*,
-          {
-            type: 'text',
-            text: 'Hello, World!'
-          },
-          {
             "type" : "sticker",
-            "stickerId" : "1",
-            "packageId" : "1"
-          },
-          {
-            "type": "image",
-            "originalContentUrl": "https://image.freepik.com/free-photo/full-shot-happy-family-outdoors_23-2149049213.jpg",
-            "previewImageUrl": "https://image.freepik.com/free-photo/full-shot-happy-family-outdoors_23-2149049213.jpg"
-          }*/
+            "stickerId" : 1,
+            "packageId" : 1
+          }
         ])
         alert ("Messege sent")
       }
@@ -161,18 +128,9 @@
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
       document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
-
-      //ทดสอบส่งค่า
-      console.log(profile.userId)
-      console.log(profile.pictureUrl)
-      //const userid1 = (profile.userId)
-      //console.log(userid1)
-      //document.getElementById("userid1").innerHTML="<h2>"+(userid1)+"</h2>"
-      document.getElementById("userid1").innerHTML="<h6>userid"+(profile.userId)+"</h6>"
-      document.getElementById("userid2").innerHTML="userid_form<input name='userid_form' type='text' value='"+(profile.userId)+"'>"
-      document.getElementById("userid3").innerHTML="userid_form hidden <input name='userid_form' type='hidden' value='"+(profile.userId)+"'>"
-      //.ทดสอบส่งค่า
     }
+
+
 
     function getEnvironment() {
       document.getElementById("os").append(liff.getOS())
@@ -193,7 +151,7 @@
     async function main() {
       // alert("LINE Developers x Skooldio")
       
-      await liff.init({ liffId: "1660718056-3l4OOLK7" })
+      await liff.init({ liffId: "1656271222-ampRmQKq" })
       // await liff.init({ liffId: "YOUR-LIFF-ID" })
       document.getElementById("isLoggedIn").append(liff.isLoggedIn())
       if (liff.isLoggedIn()) {
@@ -215,66 +173,5 @@
     }
     main()
   </script>
-
-
-
-
-
-
-
-
-
-
-
-  <script>
-
-
-    async function getUserProfile() {
-      const profile = await liff.getProfile()
-      document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("userId").append(profile.userId)
-      document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
-
-
-
-      //ทดสอบส่งค่า
-      console.log(profile.userId)
-      console.log(profile.pictureUrl)
-      //const userid1 = (profile.userId)
-      //console.log(userid1)
-      //document.getElementById("userid1").innerHTML="<h2>"+(userid1)+"</h2>"
-      document.getElementById("userid1").innerHTML="<h6>userid"+(profile.userId)+"</h6>"
-      document.getElementById("userid2").innerHTML="userid_form<input name='userid_form' type='text' value='"+(profile.userId)+"'>"
-      document.getElementById("userid3").innerHTML="userid_form hidden <input name='userid_form' type='hidden' value='"+(profile.userId)+"'>"
-
-    }
-
-
-
-
-
-  </script>
-
-
-
-  <!-- VConsole -->
-  <script src="js/vconsole.min.js"></script>
-  <script>
-    var vConsole = new VConsole()
-    console.log("Hello World!")
-  </script>
-
-
-
-  <script>
-    // Avoid Liff caching for debuging
-    document.write('<link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() + '" media="all">')
-  </script>
-
-
-
 </body>
-
 </html>
