@@ -222,9 +222,12 @@
 </p>
 
   <script>
-    let userid="38";
+    let userid="39";
     document.write(userid);
-    document.write(liff.getProfile(userId));
+    
+    const abc = liff.getProfile();
+    document.write(abc.userId);
+    console.log(abc.userId);
     
     function external2() {
       liff.openWindow({
