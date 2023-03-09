@@ -218,10 +218,12 @@
     main()
   </script>
 
-  <a href="" onclick="external2()">ส่งค่า parameter (external browser)</a><br>
+ <p> <a href="" onclick="external2()">ส่งค่า parameter (external browser)</a><br>
+</p>
 
   <script>
     let userid=(profile.userId)
+    document.write(userid)
     function external2() {
       liff.openWindow({
         url: 'https://esanphc.net?uid='+userid+'',
