@@ -59,6 +59,17 @@
     }
   </script>
 
+<a href="" onclick="external2()">ส่งค่า parameter (external browser)</a><br>
+
+<script>
+  function external2() {
+    liff.openWindow({
+      url: 'https://esanphc.net?uid='+profile.userId+'',
+      external: true
+    })
+  }
+</script>
+
   <a href="https://google.com">google  (inapp browser - not endpiont)</a>
   <br>
   <a href="test.html">test (in liff browser - endpoint)</a>
