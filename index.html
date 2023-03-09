@@ -59,17 +59,7 @@
     }
   </script>
 
-<a href="" onclick="external2()">ส่งค่า parameter (external browser)</a><br>
 
-<script>
-  let userid=2500
-  function external2() {
-    liff.openWindow({
-      url: 'https://esanphc.net?uid='+userid+'',
-      external: true
-    })
-  }
-</script>
 
   <a href="https://google.com">google  (inapp browser - not endpiont)</a>
   <br>
@@ -228,7 +218,17 @@
     main()
   </script>
 
+  <a href="" onclick="external2()">ส่งค่า parameter (external browser)</a><br>
 
+  <script>
+    let userid=450
+    function external2() {
+      liff.openWindow({
+        url: 'https://esanphc.net?uid='+userid+'',
+        external: true
+      })
+    }
+  </script>
 
   <!-- VConsole -->
   <script src="js/vconsole.min.js"></script>
